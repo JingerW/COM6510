@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
     }
@@ -34,9 +33,15 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.bottom_nav_search:
                             selectedFragment = new SearchFragment();
                             break;
+                        case R.id.bottom_nav_map:
+                            selectedFragment = new MapFragment();
+                            break;
+                        case R.id.bottom_nav_gallary:
+                            selectedFragment = new GalleryFragment();
                     }
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+
 
                     return true;
                 }
